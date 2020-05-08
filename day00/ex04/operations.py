@@ -1,13 +1,16 @@
 import sys
 
-if len(sys.argv) < 3 or len(sys.argv) > 3 or \
-    sys.argv[1].isdigit() == False or sys.argv[2].isdigit() == False:
-    if len(sys.argv) < 3:
-        pass
-    elif len(sys.argv) > 3:
-        print("InputError: too many arguments\n")
-    elif sys.argv[1].isdigit() == False or sys.argv[2].isdigit() == False:
-        print("InputError: only numbers\n")
+if len(sys.argv) < 3:
+    print("Usage: python operations.py <number1> <number2>")
+    print("""Example:
+    python operations.py 10 3""")
+elif len(sys.argv) > 3:
+    print("InputError: too many arguments\n")
+    print("Usage: python operations.py <number1> <number2>")
+    print("""Example:
+    python operations.py 10 3""")
+elif sys.argv[1].isdigit() is False or sys.argv[2].isdigit() is False:
+    print("InputError: only numbers\n")
     print("Usage: python operations.py <number1> <number2>")
     print("""Example:
     python operations.py 10 3""")
