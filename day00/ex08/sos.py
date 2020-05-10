@@ -17,7 +17,7 @@ if len(sys.argv) > 1:
     for i in range(1, len(sys.argv)):
         for j in sys.argv[i]:
             j = j.upper()
-            if j.isalpha() or j.isnumeric() or j == ' ':
+            if j.isalpha() or j.isdecimal() or j == ' ':
                 s = s + morse[j]
                 s = s + ' '
             else:
