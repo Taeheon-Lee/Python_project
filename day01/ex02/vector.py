@@ -44,59 +44,59 @@ class Vector:
                 for elem in range(my_range[0], my_range[1]):
                     copy[i] == elem
                     i += 1
-                if (self.my_list != copy)
+                if (self.my_list != copy):
                     raise ValueError("My_list is not matched with my_range")
         else:
             raise ValueError("Nothing initialized")
 
     def __add__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] += scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] += scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
 
     def __radd__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] += scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] += scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
 
     def __sub__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] -= scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] -= scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
 
     def __rsub__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] -= scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] -= scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
@@ -104,7 +104,7 @@ class Vector:
     def __truediv__(self, scalars):
         if isinstance(scalars, int):
             if scalars != 0:
-                for elem in range(self.my_length):
+                for elem in range(self.length):
                     self.my_list[elem] /= scalars
             else:
                 raise ValueError("Can not divided by 0")
@@ -114,7 +114,7 @@ class Vector:
     def __rtruediv__(self, scalars):
         if isinstance(scalars, int):
             if scalars != 0:
-                for elem in range(self.my_length):
+                for elem in range(self.length):
                     self.my_list[elem] /= scalars
             else:
                 raise ValueError("Can not divided by 0")
@@ -123,26 +123,26 @@ class Vector:
 
     def __mul__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] *= scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] *= scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
 
     def __rmul__(self, scalars_or_vectors):
         if isinstance(scalars_or_vectors, Vector):
-            if self.my_length == scalars_or_vectors.my_length:
-                for elem in range(self.my_length):
+            if self.length == scalars_or_vectors.length:
+                for elem in range(self.length):
                     self.my_list[elem] *= scalars_or_vectors.my_list[elem]
             else:
                 raise ValueError("Size of vectors are different respectively")
         elif isinstance(scalars_or_vectors, int) or isinstance(scalars_or_vectors, float):
-            for elem in range(self.my_length):
+            for elem in range(self.length):
                 self.my_list[elem] *= scalars_or_vectors
         else:
             raise TypeError("An input is not scalars or vectors")
