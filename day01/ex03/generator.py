@@ -1,4 +1,3 @@
-import re
 import time
 
 def random_number(minimum,maximum):
@@ -17,10 +16,10 @@ def generator(text, sep=" ", option=None):
                 restart = 0
                 num = (round(random_number(0, len(result)))) - 1
                 if i != 0:
-                    for j in range(i):
-                        if (result_shuffle[j] == result[num]):
-                            restart = 1;
-                            break;
+                    for elem in result_shuffle:
+                        if (elem == result[num]):
+                            restart = 1
+                            break
                     if (restart == 1):
                         continue
                 result_shuffle.append(result[num])
