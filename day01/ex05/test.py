@@ -15,4 +15,5 @@ THbank.transfer('test', 'test3', 50.0)
 print(acc1.__dict__)
 print(acc2.__dict__)
 print(acc3.__dict__)
-
+THbank.fix_account("test4")
+THbank.fix_account("test")

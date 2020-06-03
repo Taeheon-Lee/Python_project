@@ -81,7 +81,43 @@ class Bank(object):
         if check_account == None:
             print("ValueError: Incorrect account")
             return (False)
-        if not self.check_corrupted(check_account):
-            print("Error: This account is not corrupted")
+        print(check_account.__dict__)
+        list_account = list(check_account.__dict__)
+        menu = input("Type menu.(Add or Delete)\n")
+        if menu == "Add":
+            attribute = input("Type attribute want to change\n")
+            for elem in list_account:
+                if elem == attribute:
+                    to_change = input(f"Type {elem}'s changes\n")
+                    dic = {attribute: to_change}
+                    check_account.__dict__.update(dic)
+                    print(f'The content of {attribute} is changed to "{to_change}"')
+                    print(check_account.__dict__)
+                    return (True)
+            no_exist = input("The attribute is not in account. Would you like to add new attribute? (Y or N)\n")
+            while (not no_exist == 'Y' and not no_exist == 'N'):
+                if no_exist == 'Y':
+                    to_change = input(f"Type {attribute}'s content\n")
+                    dic = {attribute: to_change}
+                    check_account.__dict__.update(dic)
+                    print(f"The content of {attribute} is added")
+                    print(check_account.__dict__)
+                    return (True)
+                elif no_exist == 'N':
+                    break
+                print("Type 'Y' or 'N' only")
+                no_exist = input()
             return (False)
+        elif menu == "Delete":
+            attribute = input("Type attribute want to delete\n")
+            for elem in list_account:
+                if elem == attribute:
+                    del check_account.__dict__[attribute]
+                    print("Delete completed")
+                    print(check_account.__dict__)
+                    return (True)
+            print("The attributes is not existed")
+            return (False)
+        print("Input is wrong. Type Add or Delete.")
         return (False)
+
