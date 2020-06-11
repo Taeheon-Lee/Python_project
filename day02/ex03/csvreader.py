@@ -10,15 +10,20 @@ class CsvReader():
         self.index = []
         self.data = []
         self.result = []
-        self.corrupted = False
+        self.corrupted = self.parses()
 
     def parses(self):
         file = list(list(filter(lambda x: x != '\n', elem.split(self.sep))) for elem in list(self.file))
+        index_num = len(file[0])
+        i = 0
         for elem in file:
             self.data.append(list(line.strip() for line in elem))
+            if len(self.data[i]) != index_num:
+                return (True)
+            i += 1
         if self.header:
             self.index.append(self.data.pop(0))
-        return (True)
+        return (False)
 
     def getdata(self):
         start = 0
@@ -34,6 +39,8 @@ class CsvReader():
     def getheader(self):
         if self.header:
             return (self.index)
+        else:
+            return (self.data[0])
 
     def __enter__(self):
         if self.corrupted is True:
@@ -44,10 +51,9 @@ class CsvReader():
         self.file.close()
 
 if __name__ == "__main__":
-    sys.argv.pop(0)
-    if not len(sys.argv):
-        exit()
-    with CsvReader(sys.argv[0], skip_top=1) as file:
+    if not len(sys.argv) == 2:
+        raise Exception("Too many arguments")
+    with CsvReader(sys.argv[1], skip_top=1) as file:
         if file is None:
             print("File is corrupted")
         else:
