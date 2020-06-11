@@ -13,7 +13,7 @@ class CsvReader():
         self.corrupted = self.parses()
 
     def parses(self):
-        file = list(list(filter(lambda x: x != '\n', elem.split(self.sep))) for elem in list(self.file))
+        file = list(list(elem.split(self.sep)) for elem in list(self.file))
         index_num = len(file[0])
         i = 0
         for elem in file:
