@@ -7,28 +7,28 @@ def ft_progress(my_list, elem):
     size = len(my_list)
     end_time = time.perf_counter()
     if (elem == 0):
-        print("ETA: Calculated", end=" ")
+        print("ETA: Calculated [", end="")
     else:
-        sys.stdout.write("\033[F")
+        sys.stdout.write('\x1b[1A')
+        sys.stdout.write('\x1b[2K')
         eta = round(((size * (end_time - start_time)) / elem), 2)
-        print(f"ETA: {eta}s", end=" ")
+        print("ETA: %.2fs [" % (eta), end="")
     elem += 1
-    percent = round(((elem / size) * 100), 0)
-    if (percent < 10):
-        print(f"[  {int(percent)}%]", end="")
-    elif (percent < 100):
-        print(f"[ {int(percent)}%]", end="")
-    else:
-        print(f"[{int(percent)}%]", end="")
-    cnt_mark = int(round((percent / 5), 0))
-    print("[", end="")
-    for j in range(cnt_mark):
-        print("=", end="")
-    if not (cnt_mark == 20):
-        print(">", end="")
-    for k in range(20 - cnt_mark):
+    percent = int(((elem / size) * 100))
+    percent_digit = len(str(percent))
+    for i in range(3 - percent_digit):
         print(" ", end="")
-    print(f"] {elem}/{size} | elapsed time {round((end_time - start_time), 2)}s")
+    print(f"{int(percent)}%]", end="")
+    num_mark = int(round((percent / 5), 0))
+    print("[", end="")
+    for j in range(num_mark):
+        print("=", end="")
+    if not (num_mark == 20):
+        print(">", end="")
+        num_mark += 1
+    for k in range(20 - num_mark):
+        print(" ", end="")
+    print("] %d/%d | elapsed time %.2fs" % (elem, size, round((end_time - start_time), 2)))
 
 listy = range(3333)
 ret = 0
