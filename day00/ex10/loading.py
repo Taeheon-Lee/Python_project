@@ -16,18 +16,24 @@ def ft_progress(my_list, elem):
     elem += 1
     percent = int(((elem / size) * 100))
     percent_digit = len(str(percent))
-    for i in range(3 - percent_digit):
+    i = 0
+    while i < (3 - percent_digit):
         print(" ", end="")
+        i += 1
     print(f"{int(percent)}%]", end="")
     num_mark = int(round((percent / 5), 0))
     print("[", end="")
-    for j in range(num_mark):
+    i = 0
+    while i < num_mark:
         print("=", end="")
+        i += 1
     if not (num_mark == 20):
         print(">", end="")
         num_mark += 1
-    for k in range(20 - num_mark):
+    i = 0
+    while i < (20 - num_mark):
         print(" ", end="")
+        i += 1
     print("] %d/%d | elapsed time %.2fs" % (elem, size, round((end_time - start_time), 2)))
 
 listy = range(3333)
